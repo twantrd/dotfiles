@@ -9,3 +9,10 @@ syntax enable " enable syntax highlighting
 set hlsearch " highlight search results
 set tabstop=4 " tab indent is 4 spaces over
 set noswapfile
+
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
