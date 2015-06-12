@@ -7,7 +7,9 @@ set ignorecase " seach incase sensitive
 set incsearch " highlight as you search
 syntax enable " enable syntax highlighting
 set hlsearch " highlight search results
-set tabstop=4 " tab indent is 4 spaces over
+set tabstop=4 " tab indentation is now 4 spaces over
+set expandtab " convert tab characters to spaces
+set shiftwidth=4
 set noswapfile
 
 set t_Co=256
