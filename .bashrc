@@ -72,6 +72,9 @@ export PYTHONSTARTUP=~/.pystartup
 # Truncate working dir to 3
 PROMPT_DIRTRIM=3
 
+# For reverse search
+stty -ixon
+
 # setting term to 256colors, for tmux to use with a vim colorscheme
 # export TERM=xterm-256color
 export TERM=screen-256color
