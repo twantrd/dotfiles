@@ -12,9 +12,20 @@ set expandtab " convert tab characters to spaces
 set shiftwidth=4
 set noswapfile
 
+" Settings for simpylfold
+"let g:SimpylFold_docstring_preview = 1
+
+" Settings for CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+map <leader>b :CtrlPBuffer
+
+" Settings for colorscheme - solarize
 set t_Co=256
+set term=screen-256color
 set background=dark
 let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 colorscheme solarized
+"colorscheme atom-dark-256
