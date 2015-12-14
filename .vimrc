@@ -32,6 +32,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,E225'
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 
 " Settings for colorscheme - solarize
