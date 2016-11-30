@@ -1,0 +1,11 @@
+[user]
+        name = xxx
+        email = xxx@blah.com
+[color]
+        diff = auto
+
+[alias]
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    la = "!git config -l | grep alias | cut -c 7-"
+    lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
