@@ -1,4 +1,3 @@
-hi comment ctermfg=LightBlue " Make comments in ligher blue
 set tw=200 " Extend text width for word wrapping
 set formatoptions+=t
 set paste " disable auto comment
@@ -6,43 +5,58 @@ set ruler " show current position
 set ignorecase " seach incase sensitive
 set incsearch " highlight as you search
 syntax enable " enable syntax highlighting
+syntax on
 set hlsearch " highlight search results
-set tabstop=4 " tab indentation is now 4 spaces over
-set expandtab " convert tab characters to spaces
-set shiftwidth=4
+set tabstop=2 " tab indent is 4 spaces over
+set softtabstop=2
+set expandtab
 set noswapfile
+set shiftwidth=2
 
-" Settings for simpylfold
-"let g:SimpylFold_docstring_preview = 1
+" map shift+arrows to nothing as they screw me up in vim
+map <S-Up> <Nop>
+map <S-Down> <Nop>
+map <S-Right> <Nop>
+map <S-Left> <Nop>
 
-" Settings for CtrlP
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-map <leader>b :CtrlPBuffer
+" NerdTree
+map <silent> :ne :NERDTree  " press :ne to toggle nerdtree
+map <silent> <C-n> :NERDTreeFocus<CR> " take you back to file explorer pane
+set splitright "vsplit to right of current buffer
+map <S-Right> :tabn<CR> "shift right-arrow switch between tabs
+map <S-Left>> :tabp<CR>
+map <S-n>> :tabnew<CR>
 
 execute pathogen#infect()
-" Settings for syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501,E225'
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
-
-
-" Settings for colorscheme - solarize
+" Settings for colorscheme - solarized8
 set t_Co=256
-set term=screen-256color
+set term=xterm-256color
 set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-colorscheme solarized
-"colorscheme atom-dark-256
+" colorscheme monokai
+colorscheme solarized8_dark_high
+set termguicolors
+highlight Normal ctermbg=NONE guibg=black
+highlight nonText ctermbg=NONE guibg=black
+
+" let nerdtree show hidden files
+let NERDTreeShowHidden=1
+
+" github markdown preview
+let vim_markdown_preview_github=1
+let vim_markdown_preview_hotkey='<C-m>' " ctrl-m
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_temp_file=1
+
+" vim-airline
+let g:airline_powerline_fonts = 1
+if has("gui_running")
+  au VimEnter * NERDTree " auto-launch nerdtree
+  " let g:airline_theme='murmur'
+  set guifont=Meslo\ LG\ M\ Regular\ For\ Powerline:h14
+  let g:airline_theme='base16_spacemacs'
+else
+  " let g:airline_theme='lucius'
+  let g:airline_theme='base16'
+  " let g:airline_theme='bubblegum'
+endif
