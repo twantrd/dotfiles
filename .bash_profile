@@ -34,7 +34,7 @@ export HISTTIMEFORMAT="%F %T "
 
 # append history
 shopt -s histappend
-export PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # history size
 HISTFILESIZE=5000 
