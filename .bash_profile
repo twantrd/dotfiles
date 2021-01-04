@@ -97,8 +97,16 @@ export TERM=xterm-256color
 # ansible vault
 export ANSIBLE_VAULT_PASSWORD_FILE=XXXX
 
+# Git branch in prompt.
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+
+# PATH
+export PATH=$PATH:/Users/toan.nguyen/Library/Python/3.8/bin
+
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
